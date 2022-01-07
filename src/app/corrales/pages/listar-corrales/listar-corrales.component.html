@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row p-4" style="text-align: center;">
+        <h1>Granja</h1>
+        <div class=" p-4" style="text-align: center;">
+            <input type="submit" value="Generar Reporte" class="btn btn-info" (click)="GenerarReporte()">
+            
+        </div>
+        
+    </div>
+    
+    <div class="row  ">
+        <div class="col-md-4">
+            <h4 style="text-align: center;">Corrales</h4>
+            <div class="form-group vertical-divider p-4">
+                <Select class="form-select" (change)="onchange($event.target)" >
+                    <option value="" selected disabled >Seleccione un Corral</option>
+                    <option value="{{corral._id}}" *ngFor="let corral of corrales" id="selected">{{corral.nombre}} </option>
+                </Select>
+               
+            </div>
+        </div>
+        <div class="col-md-8" *ngIf="animales.length > 0">
+
+            <table class="table table-striped">
+                 <thead>
+                     <tr>
+                         <th>Nombre</th>
+                         <th>Edad</th>                         
+                         <th>Peso</th>
+                         <th>Tipo</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr *ngFor="let animal of animales">
+                         <td>{{animal.nombre}}</td>
+                         <td>{{animal.edad}}</td>
+                         <td>{{animal.peso}}</td>
+                         <td>{{animal.tipo}}</td>                       
+                         
+                     </tr>
+                     <tr>
+                        <td><input type="submit" class="btn btn-success" value="Promedio Edad" (click)="CalcPromedio(this.idcorral)"></td>
+                        <td *ngIf="promedio != null ">{{promedio.promedio}}</td>
+                     </tr>
+                     
+                 </tbody>
+            
+            </table>
+         </div>
+         
+
+            
+
+        
+    </div>
+   
+</div>

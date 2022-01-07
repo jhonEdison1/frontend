@@ -1,0 +1,42 @@
+
+<div class="row">
+    <div class="">
+        <input type="submit" value="GenerarPdf" class="btn btn-info" (click)="downloadPDF()">
+    </div>
+    <div class="col-md-8 mx-auto"  id="htmlData">
+        <div class="text-center">
+            <h1>Reporte de Corrales</h1>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>                         
+                    <th>Peso</th>
+                    <th>Tipo</th>
+                    <th>Corral</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!------si el tipo de animal es carnivoro peligroso pintar la tabla de rojo-->
+                <tr *ngFor="let animal of animals">
+       
+                    <td>{{animal.nombre}}</td>
+                    <td>{{animal.edad}}</td>
+                    <td>{{animal.peso}}</td>
+                    <td *ngIf="animal.tipo== 'Carnivoro Peligroso'" style="background-color: red;" >{{animal.tipo}}</td>
+                    <td *ngIf="animal.tipo!= 'Carnivoro Peligroso'" >{{animal.tipo}}</td>
+                    <td>{{animal.corral}}</td>                          
+                </tr>
+                
+                
+            </tbody>
+       
+       </table>
+    </div>
+
+   
+
+            
+
+</div>

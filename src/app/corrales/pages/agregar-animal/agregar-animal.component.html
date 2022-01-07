@@ -1,0 +1,48 @@
+<div class="row p-4">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                Agregar Animal
+            </div>
+            <div class="card-body">
+                
+                <form (submit)="agregarAnimal(nombre, idcorral,  edad, tipo, peso)">
+                    <div class="form-group">                       
+                        <input type="text"  name="nombre" placeholder="nombre" class="form-control" required autofocus  #nombre >                        
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group pt-2">
+                            <select class="form-select" required #idcorral >
+                                <option value="" selected disabled >Seleccione un Corral</option>
+                                <option value="{{corral._id}}"  *ngFor="let corral of corrales" id="selected"  >{{corral.nombre}} </option>
+                            </select>
+                          </div>
+                    </div>
+
+                    <div class="form-group pt-2">
+                        <input type="number"  name="edad" placeholder="edad" class="form-control" required #edad>    
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-group pt-2">
+                            <select class="form-select" required #tipo >
+                                <option value="" selected disabled >Seleccione un Tipo</option>
+                                <option value="{{tipo._id}}"  *ngFor="let tipo of tipos" id="selected"  >{{tipo.nombre}} </option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="form-group pt-2">
+                        <input type="number"  name="peso" placeholder="peso" class="form-control" required #peso>    
+                    </div>
+                    <div class="form-group pt-2">
+                        <button type="submit" class="btn btn-primary btn-block">Agregar</button>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
